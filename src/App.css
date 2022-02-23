@@ -1,0 +1,78 @@
+body {
+  font-family: 'Open Sans Condensed';
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-main-container{
+  background-color: antiquewhite;
+  height:100vh;
+  width:100%;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/crwn-db-e8117.appspot.com/o/landing1.jpg?alt=media&token=89bd0a51-399d-4392-bacb-019e24dc3d85');
+  background-position: center;
+  background-size: cover;
+  animation: filter 10s linear infinite;
+  position: absolute;
+
+}
+
+@keyframes filter{
+
+  0%{
+    filter: hue-rotate(34.1turn);
+    opacity: 1;
+  }
+  10%{
+    filter: hue-rotate(34.2turn);
+    opacity: 1;
+  }
+  20%{
+    filter: hue-rotate(34.3turn);
+    opacity: 1;
+  }
+  30%{
+    filter: hue-rotate(34.4turn);
+    opacity: 1;
+  }
+  40%{
+    filter: hue-rotate(34.5turn);
+    opacity: 1;
+  }
+  50%{
+    filter: hue-rotate(34.6turn);
+    opacity: 1;
+  }
+  60%{
+    filter: hue-rotate(34.7turn);
+    opacity: 1;
+  }
+  70%{
+    filter: hue-rotate(34.8turn);
+    opacity: 1;
+  }
+  80%{
+    filter: hue-rotate(34.9turn);
+    opacity: 1;
+  }
+  90%{
+    filter: hue-rotate(35.0turn);
+    opacity: 1;
+  }
+  100%{
+    filter: hue-rotate(35.1turn);
+    opacity: 1;
+  }
+
+}
+
