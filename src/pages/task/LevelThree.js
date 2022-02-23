@@ -1,105 +1,154 @@
 import React, { Component } from 'react'
-import {firestore} from '../../firebase/firebase.utils'
+import { firestore } from '../../firebase/firebase.utils'
 import FormInput from '../../components/form-input/form-input.component'
-import {Link} from 'react-router-dom'
-import {Button,Jumbotron, Row,Col} from 'react-bootstrap'
-import {reactLocalStorage} from 'reactjs-localstorage'
-import './styles/LevelThree.scss'
+import { Link } from 'react-router-dom'
+import { Button, Jumbotron, Row, Col } from 'react-bootstrap'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import './styles/LevelOne.scss'
+import { auth, createUserProfileDocument } from './../../firebase/firebase.utils';
 
 export default class LevelOne extends Component {
 
     constructor(props) {
         super(props);
-    
-        this.state = {
-          userAnswer: ''
-        };
-      }
-    
-    
-    handleHint=async ()=>{
-            const {id}=this.props;
-            let {hint,score,submitAnswer,showAnswer}=this.props;
 
-            if(hint)
-            {
-                if((!submitAnswer[2])&&(!hint[2])&&(!showAnswer[2]))
-                {
-                    hint[2]=new Date();
-                    const userRef=firestore.doc(`users/${id}`);       
-                    await userRef.update({hint,score:score-5});
-                }
-            }
-            
+        this.state = {
+            userAnswer: '',
+            currentQuestionArray: {},
+            index: 0,
+        };
     }
 
-    handleShowAnswer=async ()=>{
-        const {id}=this.props;
-        let {showAnswer,score,submitAnswer}=this.props;
-        const tmpVal=reactLocalStorage.get('timer');
+    componentDidMount() {
+        auth.onAuthStateChanged(async userAuth => {
 
-        if(showAnswer&&tmpVal)
-        {
-            if((!submitAnswer[2])&&(!showAnswer[2])&&(tmpVal<=4500))
-            {
-                showAnswer[2]=new Date();
-                const userRef=firestore.doc(`users/${id}`);       
-                await userRef.update({showAnswer,score:score-10});
+            if (userAuth) {
+                const Ref = await createUserProfileDocument(userAuth);
+
+                Ref.levelRef.doc('level3').onSnapshot(async snapShot => {
+                    console.log(snapShot.data());
+                    await this.setState({
+                        currentQuestionArray: {
+                            ...snapShot.data()
+                        }
+                    });
+                });
+            } else {
+                // this.setState({ currentUser: userAuth });
+            }
+
+
+        });
+    }
+
+
+
+    handleHint = async () => {
+        const { id } = this.props;
+        const i = this.state.index;
+        let { hint, score, submitAnswer, showAnswer } = this.state.currentQuestionArray;
+
+        if (hint) {
+            if ((!submitAnswer[i]) && (!hint[i]) && (!showAnswer[i])) {
+                hint[i] = new Date();
+                const userRef = firestore.doc(`users/${id}`).collection("level").doc('level3');
+                await userRef.update({ hint, score: score - 5 });
+                
+                const timeRef =  firestore.doc(`users/${id}`);
+                const tg = await timeRef.get();
+                const oldScore = tg.data().score;
+                await timeRef.update({ score: oldScore -5 });
             }
         }
-       
+
+    }
+
+    handleShowAnswer = async () => {
+        const { id } = this.props;
+        const i = this.state.index;
+        let { showAnswer, score, submitAnswer } = this.state.currentQuestionArray;
+        const tmpVal = reactLocalStorage.get('timer');
+
+        if (showAnswer && tmpVal) {
+            if ((!submitAnswer[i]) && (!showAnswer[i]) && (tmpVal <= 5100)) {
+                showAnswer[i] = new Date();
+                const userRef = firestore.doc(`users/${id}`).collection("level").doc('level3');
+                await userRef.update({ showAnswer, score: score - 10 });
+                
+                const timeRef =  firestore.doc(`users/${id}`);
+                const tg = await timeRef.get();
+                const oldScore = tg.data().score;
+                await timeRef.update({ score: oldScore - 10 });
+            }
+        }
+
     }
 
     handleChange = event => {
         const { name, value } = event.target;
-    
-        this.setState({ [name]: value.toLowerCase() });
-      };
 
-    handleUserAnswer =async ()=>{
-        // const userRef=firestore.doc(`answers/2`);       
-        // const {level1}=await (await userRef.get()).data();
-        // console.log(level1);
-        if(this.props.correctAnswer===this.state.userAnswer)
-        {
-           
-                    const {id,showAnswer}=this.props;
-                    let {submitAnswer,score}=this.props;
+        this.setState({ [name]: value.toLowerCase() });
+    };
+
+    updateIndex = (event) => {
+        console.log(this.state.index, this.props.qha.length)
+        if (this.props.qha.length > this.state.index + 1) {
+            var index1 = this.state.index + 1;
+            this.setState({ index: index1 });
+        } else {
+            window.location.href = '/endgame'
+        }
+    }
+
+    handleUserAnswer = async () => {
+        if (this.props.qha[this.state.index].correctAnswer === this.state.userAnswer) {
+
+            const { id  } = this.props;
+            let { submitAnswer, score ,showAnswer } = this.state.currentQuestionArray;
+            const i = this.state.index;
+            console.log(showAnswer)
+            if (showAnswer) {
+
+                if (!showAnswer[i] && !submitAnswer[i]) {
+                    submitAnswer[i] = new Date();
+                    console.log(showAnswer[i]);
+                    const userRef = firestore.doc(`users/${id}`).collection("level").doc('level3');
+                    const test = await userRef.update({ submitAnswer, score: score + 10 });
                    
-                    if(showAnswer)
-                    {
-                        if(!showAnswer[2]&&!submitAnswer[2])
-                        {
-                            submitAnswer[2]=new Date();
-                            console.log(showAnswer[2]);
-                            const userRef=firestore.doc(`users/${id}`);       
-                            await userRef.update({submitAnswer,score:score+10});
-                        }  
-                    }
-                    
+                    const timeRef =  firestore.doc(`users/${id}`);
+                    const tg = await timeRef.get();
+                    const oldScore = tg.data().score;
+                    await timeRef.update({ score: oldScore + 10 });
+                }
+            }
+            this.setState({ userAnswer: '' });
             alert("Congratulations your answer is correct, You can move to next level now");
         }
         else
             alert("Ohh No Your Answer Is wrong Try to take hint/show answer if you are stuck. It comes with penalty ");
-    }  
+    }
 
     render() {
-        // const {id}=this.props;
-        const {showAnswer,submitAnswer,hint} =this.props;
-        const {story,question,dataString,correctAnswer}=this.props
-        
+        const { id } = this.props;
+        const { showAnswer, submitAnswer, hint } = this.state.currentQuestionArray;
+        var index = this.state.index
+        const { story, qha } = this.props
+        const { question, dataString, correctAnswer } = qha[index];
         return (
-            <Jumbotron className='three-task-page'>
+            <Jumbotron className='one-task-page'>
                 <div className="inside-book">
                     <Row>
-                    <Col className='hero-image-container'>
-                        <div className="hero-image">
-                            <div className="hero-text">
-                                <pre>{story}</pre>                    
+                        <Col className='hero-image-container'>
+                            <div className="hero-image">
+                                <div className="hero-text">
+                                    <pre>{story}</pre>
+                                    <audio controls>
+                                        <source src="" type="audio/mpeg" />
+                                    </audio>
+                                </div>
                             </div>
-                        </div>
-                        
-                    </Col>
+
+                        </Col>
                     </Row>
                     <FormInput
                         type='text'
@@ -109,28 +158,35 @@ export default class LevelOne extends Component {
                         label={`${question}`}
                     />
                 </div>
-               
-               {/* {console.log(this.props)} */}
-              
-               {/* <Row><h3>{question}</h3></Row> */}
-               <div className="outside-book">
+
+
+                <div className="outside-book">
                     {
-                        hint?(hint[2]?<Row><h3>The Hint Is:{dataString}</h3></Row>:null):null
+                        hint ? (hint[index] ? <Row><h3>The Hint Is:{dataString}</h3></Row> : null) : null
                     }
                     {
-                        showAnswer?(showAnswer[2]?<Row><h3>The Answer Is:{correctAnswer}</h3></Row>:null):null
+                        showAnswer ? (showAnswer[index] ? <Row><h3>The Answer Is:{correctAnswer}</h3></Row> : null) : null
                     }
-                    <Button variant="success" style={{margin:'0px 5px'}} onClick={this.handleUserAnswer}>Check Answer</Button>
-                    <Button variant="warning" style={{margin:'0px 5px'}} onClick={this.handleHint}>Hint Please</Button>
-                    <Button variant="danger" style={{margin:'0px 5px'}} onClick={this.handleShowAnswer}>Show Answer</Button>
+                    <Button variant="success" style={{ margin: '0px 5px' }} onClick={this.handleUserAnswer}>Check Answer</Button>
+                    <Button variant="warning" style={{ margin: '0px 5px' }} onClick={this.handleHint}>Hint Please</Button>
+                    <Button variant="danger" style={{ margin: '0px 5px' }} onClick={this.handleShowAnswer}>Show Answer</Button>
                     {
-                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/dejavu'> Previous Level</Link></Button>):null
-                    }
-                    {
-                     showAnswer?(showAnswer[2]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/nightofdarkness'> Next Level</Link></Button>:(submitAnswer?(submitAnswer[2]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/nightofdarkness'> Next Level</Link></Button>:null):null)):null
+                        showAnswer ?
+                            (showAnswer[index]
+                                ? <Button variant="success" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
+                                    {/*<Link to='/dejavu'> Next Level</Link>*/}
+                                    Next Level
+                                </Button> :
+                                (submitAnswer ?
+                                    (submitAnswer[index] ?
+                                        <Button variant="success" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
+                                            {/* <Link to='/dejavu'> Next Level</Link> */}
+                                            Next Level
+                                        </Button>
+                                        : null) : null)) : null
                     }
                 </div>
-               
+
             </Jumbotron>
         )
     }

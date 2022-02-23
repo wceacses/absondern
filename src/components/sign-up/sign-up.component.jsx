@@ -2,7 +2,7 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-
+import {reactLocalStorage} from 'reactjs-localstorage'
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 import './sign-up.styles.scss';
@@ -21,7 +21,7 @@ class SignUp extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-
+    reactLocalStorage.set('timer', 3600);
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {

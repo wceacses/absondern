@@ -4,7 +4,7 @@ import { auth } from '../../firebase/firebase.utils';
 
 
 export default function Timer({totalTime}) {
-  const tmpVal=reactLocalStorage.get('timer',5700);
+  const tmpVal=reactLocalStorage.get('timer',3600);
   const [timer, setTimer] = React.useState(tmpVal);
   const id = React.useRef(null);
   const clear = () => {

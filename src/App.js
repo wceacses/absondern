@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route,Redirect } from 'react-router-dom';
-
+import 'dotenv/config';
 import './App.css';
 
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
@@ -32,9 +32,9 @@ class App extends React.Component {
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(async snapShot => {
+        const Ref = await createUserProfileDocument(userAuth);
+        await Ref.userRef.onSnapshot(async snapShot => {
+          // console.log(snapShot.data());
           await this.setState({
             currentUser: {
               id: snapShot.id,
@@ -82,8 +82,6 @@ class App extends React.Component {
           <Route exact path='/theroyalmurder' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} />
           <Route exact path='/dejavu' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} />
           <Route exact path='/crosswood' render={()=><LevelThree {...DATA[2]} {...currentUser}></LevelThree>} />
-          <Route exact path='/nightofdarkness' render={()=><LevelFour {...DATA[3]} {...currentUser}></LevelFour>} />
-          <Route exact path='/blackhoodeddevil' render={()=><LevelFive {...DATA[4]} {...currentUser}></LevelFive>} />
           <Route exact path='/endgame' render={()=><LevelSix {...DATA[5]} {...currentUser}></LevelSix>} />
           <Route exact path='/' render={()=>currentUser?(<Redirect to='/rule'/>):<SignInAndSignUpPage/>}/>
           
