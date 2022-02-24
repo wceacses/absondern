@@ -164,9 +164,9 @@ export default class LevelOne extends Component {
                     {
                         showAnswer ? (showAnswer[index] ? <Row><h3>The Answer Is:{correctAnswer}</h3></Row> : null) : null
                     }
-                    <Button variant="success" style={{ margin: '0px 5px' }} onClick={this.handleUserAnswer}>Check Answer</Button>
-                    <Button variant="warning" style={{ margin: '0px 5px' }} onClick={this.handleHint}>Hint Please</Button>
                     <Button variant="danger" style={{ margin: '0px 5px' }} onClick={this.handleShowAnswer}>Show Answer</Button>
+                    <Button variant="warning" style={{ margin: '0px 5px' }} onClick={this.handleHint}>Hint Please</Button>
+                    <Button variant="success" style={{ margin: '0px 5px' }} onClick={this.handleUserAnswer}>Check Answer</Button>
                     {
                         showAnswer ?
                             (showAnswer[index]
