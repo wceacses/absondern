@@ -9,7 +9,7 @@ const DATA = [
                 correctAnswer: `knowledge`
             },
             {
-                question: 'Who i am ,i have eyes but cant see ,i have a mouth but cant talk,have legs but cant walk,who am i?',
+                question: 'Who i am ,i have eyes but can\'t see ,i have a mouth but can\'t talk,have legs but can\'t walk,who am i?',
                 dataString: 'I\'m a Barbie girl, in the Barbie world.',
                 correctAnswer: `doll`
             },
@@ -24,7 +24,7 @@ const DATA = [
                 correctAnswer: `2213`
             },
             {
-                question: 'rhenium ,Nitrogen, calcium  , thoriumm , beryllium ?',
+                question: 'rhenium, nitrogen, calcium, thoriumm, beryllium ?',
                 dataString: 'Rearrange me if you can.',
                 correctAnswer: `caren beth`
             },
@@ -35,7 +35,7 @@ const DATA = [
         story: ` `,
         qha: [
             {
-                question: 'Gussa mat kar nao-jawan ,Andhi ho ya tufan,garmi sardi ka nhi bhan ,Bol me',
+                question: 'Gussa mat kar nao-jawan, Andhi ho ya tufan, garmi sardi ka nhi bhan, Bol me rakhna yahi bol, Jay jawan jay kisan..',
                 dataString: 'Kiske hai ye bol?',
                 correctAnswer: `lal bahadur sastri chowk`
             },
@@ -46,8 +46,8 @@ const DATA = [
                 optionalAnswer: `shipyard`
             },
             {
-                question: 'Pahad ko Jaye Ram Jab ,Banvas se aaye ram tabhi to rawan sharan me aaye',
-                dataString: 'Batao Batao konsi jagah thi vo..',
+                question: 'Pahad ko Jaye Ram Jab, Banvas se aaye ram tabhi to rawan sharan me aaye',
+                dataString: 'Batao Batao konsi jagah hai vo..',
                 correctAnswer: `lanka niwas`
             },
             {
