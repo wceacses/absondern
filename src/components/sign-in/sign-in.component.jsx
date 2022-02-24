@@ -27,7 +27,7 @@ class SignIn extends React.Component {
       this.setState({ email: '', password: '' });
     } catch (error) {
       alert("Email Id or Passsword Didn't Match In Our Record, Please Check Again");
-      console.log(error);
+      // //console.log(error);
     }
   };
 

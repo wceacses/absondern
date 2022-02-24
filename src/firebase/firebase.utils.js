@@ -11,7 +11,7 @@ const config = {
   appId: process.env.REACT_APP_appId,
   measurementId: process.env.REACT_APP_measurementId
 };
-console.log(config);
+//console.log(config);
 // // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
@@ -85,7 +85,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         submitAnswer,
       })
     } catch (error) {
-      console.log('error creating user', error.message);
+      //console.log('error creating user', error.message);
     }
   }
 

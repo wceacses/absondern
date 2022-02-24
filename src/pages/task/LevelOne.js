@@ -16,17 +16,21 @@ export default class LevelOne extends Component {
             userAnswer: '',
             currentQuestionArray: {},
             index: 0,
+            timeCurr : 180,
         };
     }
 
     componentDidMount() {
+        setTimeout(() =>{
+            document.getElementById('showbutton').removeAttribute('style');
+        },180000)
         auth.onAuthStateChanged(async userAuth => {
 
             if (userAuth) {
                 const Ref = await createUserProfileDocument(userAuth);
 
                 Ref.levelRef.doc('level1').onSnapshot(async snapShot => {
-                    console.log(snapShot.data());
+                    //console.log(snapShot.data());
                     await this.setState({
                         currentQuestionArray: {
                             ...snapShot.data()
@@ -87,12 +91,21 @@ export default class LevelOne extends Component {
     };
 
     updateIndex = (event) => {
-        console.log(this.state.index, this.props.qha.length)
+        //console.log(this.state.index, this.props.qha.length)
         if (this.props.qha.length > this.state.index + 1) {
             var index1 = this.state.index + 1;
             this.setState({ index: index1 });
         } else {
-            window.location.href = '/dejavu'
+            window.location.href = '/sciyokshi'
+        }
+    }
+
+    DecIndex = (event) => {
+        if (0  < this.state.index ) {
+            var index1 = this.state.index - 1;
+            this.setState({ index: index1 });
+        } else {
+            window.location.href = '/rule'
         }
     }
 
@@ -102,12 +115,12 @@ export default class LevelOne extends Component {
             const { id } = this.props;
             let { submitAnswer, score, showAnswer } = this.state.currentQuestionArray;
             const i = this.state.index;
-            console.log(showAnswer)
+            //console.log(showAnswer)
             if (showAnswer) {
 
                 if (!showAnswer[i] && !submitAnswer[i]) {
                     submitAnswer[i] = new Date();
-                    console.log(showAnswer[i]);
+                    //console.log(showAnswer[i]);
                     const userRef = firestore.doc(`users/${id}`).collection("level").doc('level1');
                     const test = await userRef.update({ submitAnswer, score: score + 10 });
                     const timeRef = firestore.doc(`users/${id}`);
@@ -117,7 +130,13 @@ export default class LevelOne extends Component {
                 }
             }
             this.setState({ userAnswer: '' });
-            alert("Congratulations your answer is correct, You can move to next level now");
+            alert("Congratulations your answer is correct, You can move to next question now");
+            if (this.props.qha.length > this.state.index + 1) {
+                var index1 = this.state.index + 1;
+                this.setState({ index: index1 });
+            } else {
+                window.location.href = '/sciyokshi'
+            }
         }
         else
             alert("Ohh No Your Answer Is wrong Try to take hint/show answer if you are stuck. It comes with penalty ");
@@ -129,13 +148,14 @@ export default class LevelOne extends Component {
         var index = this.state.index
         const { story, qha } = this.props
         const { question, dataString, correctAnswer } = qha[index];
+        
         return (
             <Jumbotron className='one-task-page'>
                 <div className="inside-book">
                     <Row>
                         <Col className='hero-image-container'>
                             <div className="hero-image">
-                                <div className="hero-text">
+                                <div className="hero-text" style={{textAlign: 'center'}}>
                                     <pre>{story}</pre>
                                     <audio controls>
                                         <source src="https://firebasestorage.googleapis.com/v0/b/crwn-db-e8117.appspot.com/o/Part%201-testing.mp3?alt=media&token=3c70a204-3363-4996-88b4-52e5dfde4741" type="audio/mpeg" />
@@ -162,22 +182,24 @@ export default class LevelOne extends Component {
                     {
                         showAnswer ? (showAnswer[index] ? <Row><h3>The Answer Is:{correctAnswer}</h3></Row> : null) : null
                     }
-                    
-                    <Button variant="danger" style={{ margin: '0px 5px' }} onClick={this.handleShowAnswer}>Show Answer</Button>
+                    {
+                        showAnswer?(<Button variant="outline-primary" onClick={this.DecIndex} style={{margin:'0px 5px'}}>Previous Part</Button>):null
+                    }
+                    <Button variant="danger" id="showbutton" style={{ margin: '0px 5px',display:'none' }} onClick={this.handleShowAnswer}>Show Answer</Button>
                     <Button variant="warning" style={{ margin: '0px 5px' }} onClick={this.handleHint}>Hint Please</Button>
                     <Button variant="success" style={{ margin: '0px 5px' }} onClick={this.handleUserAnswer}>Check Answer</Button>
                     {
                         showAnswer ?
                             (showAnswer[index]
-                                ? <Button variant="success" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                    {/*<Link to='/dejavu'> Next Level</Link>*/}
-                                    Next Level
+                                ? <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
+                                    {/*<Link to='/sciyokshi'> Next question</Link>*/}
+                                    Next question
                                 </Button> :
                                 (submitAnswer ?
                                     (submitAnswer[index] ?
-                                        <Button variant="success" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                            {/* <Link to='/dejavu'> Next Level</Link> */}
-                                            Next Level
+                                        <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
+                                            {/* <Link to='/sciyokshi'> Next question</Link> */}
+                                            Next question
                                         </Button>
                                         : null) : null)) : null
                     }

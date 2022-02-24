@@ -69,7 +69,7 @@ export default class LevelOne extends Component {
                     />
                 </div>
                
-               {/* {console.log(this.props)} */}
+               {/* {//console.log(this.props)} */}
               
                {/* <Row><h3>{question}</h3></Row> */}
                <div className="outside-book">
@@ -81,7 +81,7 @@ export default class LevelOne extends Component {
                     }
                     <Button variant="success" style={{margin:'0px 5px'}} onClick={this.handleUserAnswer}>Submit Story</Button>
                     {
-                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Previous Level</Link></Button>):null
+                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Level</Link></Button>):null
                     }
                    
                 </div>

@@ -4,7 +4,7 @@ import { auth } from '../../firebase/firebase.utils';
 
 
 export default function Timer({totalTime}) {
-  const tmpVal=reactLocalStorage.get('timer',3900);
+  const tmpVal=reactLocalStorage.get('timer',3600);
   const [timer, setTimer] = React.useState(tmpVal);
   const id = React.useRef(null);
   const clear = () => {
@@ -25,17 +25,11 @@ export default function Timer({totalTime}) {
     }if(timer%10===0)
     {
       reactLocalStorage.set('timer', timer);
-      // //console.log(timer)
+      //console.log(timer)
     }
   }, [timer]);
 
-  return (
-    <>
-      <div style={{color:'white'}}>
-        Time left {Math.floor(timer / 60)}:{timer % 60}{" "}
-      </div>
-    </>
-  );
+
 }
 
 

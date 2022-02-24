@@ -26,7 +26,7 @@ export default function rules() {
                 <br /> <br />
                 6. Any scene of plagiarism will be checked and if one is found to do so, he will be debarred.
                 <br /> <br />
-                <Button style={{ margin: '10px' }}> <Link to='theroyalmurder'>Start Now</Link></Button>
+                <Button style={{ margin: '10px' }}> <Link to='manyokshi'>Start Now</Link></Button>
             </div>
 
         </Jumbotron>

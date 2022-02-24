@@ -59,7 +59,7 @@ export default class LevelOne extends Component {
     handleUserAnswer =async ()=>{
         // const userRef=firestore.doc(`answers/3`);       
         // const {level1}=await (await userRef.get()).data();
-        // console.log(level1);
+        // //console.log(level1);
         if(this.props.correctAnswer===this.state.userAnswer)
         {
            
@@ -71,7 +71,7 @@ export default class LevelOne extends Component {
                         if(!showAnswer[3]&&!submitAnswer[3])
                         {
                             submitAnswer[3]=new Date();
-                            console.log(showAnswer[3]);
+                            //console.log(showAnswer[3]);
                             const userRef=firestore.doc(`users/${id}`);       
                             await userRef.update({submitAnswer,score:score+10});
                         }  
@@ -110,7 +110,7 @@ export default class LevelOne extends Component {
                     />
                 </div>
                
-               {/* {console.log(this.props)} */}
+               {/* {//console.log(this.props)} */}
                
                {/* <Row><h3>{question}</h3></Row> */}
                <div className="outside-book">
@@ -125,7 +125,7 @@ export default class LevelOne extends Component {
                     <Button variant="warning" style={{margin:'0px 5px'}} onClick={this.handleHint}>Hint Please</Button>
                     <Button variant="danger" style={{margin:'0px 5px'}} onClick={this.handleShowAnswer}>Show Answer</Button>
                     {
-                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/crosswood'> Previous Level</Link></Button>):null
+                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Level</Link></Button>):null
                     }
                     {
                      showAnswer?(showAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Level</Link></Button>:(submitAnswer?(submitAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Level</Link></Button>:null):null)):null

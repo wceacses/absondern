@@ -34,14 +34,14 @@ class App extends React.Component {
       if (userAuth) {
         const Ref = await createUserProfileDocument(userAuth);
         await Ref.userRef.onSnapshot(async snapShot => {
-          // console.log(snapShot.data());
+          // //console.log(snapShot.data());
           await this.setState({
             currentUser: {
               id: snapShot.id,
               ...snapShot.data()
             }
           });
-          // ,()=>{console.log(this.state.currentUser)}
+          // ,()=>{//console.log(this.state.currentUser)}
         });
       }else{
         this.setState({ currentUser: userAuth });
@@ -58,12 +58,12 @@ class App extends React.Component {
   // handleHint=async ()=>{
   //     const {currentUser}=this.state;
   //     let {hint,score}=currentUser;
-  //     console.log(currentUser.id);
+  //     //console.log(currentUser.id);
   //     if(hint[4])
   //     {
   //       hint[4]=true;
   //       const userRef=firestore.doc(`users/${currentUser.id}`); 
-  //       console.log(await (await userRef.get()).data());  
+  //       //console.log(await (await userRef.get()).data());  
   //       // userRef.update({score:score-5});
   //     }
       
@@ -79,10 +79,10 @@ class App extends React.Component {
         {/* <LevelOne {...currentUser}></LevelOne> */}
         <Switch>
           <Route exact path='/rule' component={Rules} />
-          <Route exact path='/theroyalmurder' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} />
-          <Route exact path='/dejavu' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} />
-          <Route exact path='/crosswood' render={()=><LevelThree {...DATA[2]} {...currentUser}></LevelThree>} />
-          <Route exact path='/endgame' render={()=><LevelSix {...DATA[5]} {...currentUser}></LevelSix>} />
+          <Route exact path='/manyokshi' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} />
+          <Route exact path='/sciyokshi' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} />
+          <Route exact path='/kinyokshi' render={()=><LevelThree {...DATA[2]} {...currentUser}></LevelThree>} />
+          <Route exact path='/endgame' render={()=><LevelSix {...DATA[3]} {...currentUser}></LevelSix>} />
           <Route exact path='/' render={()=>currentUser?(<Redirect to='/rule'/>):<SignInAndSignUpPage/>}/>
           
         </Switch>

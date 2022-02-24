@@ -14,7 +14,7 @@ const Header = ({ totalTime,displayName,score,email }) => (
       <Logo className='logo' />
     </Link>
     {
-        console.log("from Header")
+        //console.log("from Header")
     }
    
     <div className='options'>

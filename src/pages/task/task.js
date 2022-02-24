@@ -5,12 +5,12 @@ const DATA = [
         qha: [
             {
                 question: 'Something that anyone can see but cant stole?',
-                dataString: 'Jo baatne se badta hai.',
+                dataString: ' It increases by sharing.',
                 correctAnswer: `knowledge`
             },
             {
                 question: 'Who i am ,i have eyes but cant see ,i have a mouth but cant talk,have legs but cant walk,who am i?',
-                dataString: 'Kya mai zinda hu?',
+                dataString: 'I\'m a Barbie girl, in the Barbie world.',
                 correctAnswer: `doll`
             },
             {
@@ -37,7 +37,7 @@ const DATA = [
             {
                 question: 'Gussa mat kar nao-jawan ,Andhi ho ya tufan,garmi sardi ka nhi bhan ,Bol me',
                 dataString: 'Kiske hai ye bol?',
-                correctAnswer: `lal bahadur sastri choak`
+                correctAnswer: `lal bahadur sastri chowk`
             },
             {
                 question: 'Sagar kinare Dil ke pukare vahi hote hai lohe ke machhware..',
@@ -51,9 +51,9 @@ const DATA = [
                 correctAnswer: `lanka niwas`
             },
             {
-                question: '<img src={https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/lock.jpg?alt=media&token=3f1bc458-d7dc-4d4a-8285-bed3cde1da80} alt="question"/>',
+                question: ``,
                 dataString: 'Carefully see the hints',
-                correctAnswer: `2213`
+                correctAnswer: `284`
             },
         ]
     },
@@ -71,13 +71,12 @@ const DATA = [
                 dataString: 'Who called Byomkesh ?',
                 correctAnswer: `rashmika`,
             },
-            {
-                question: 'Give conclusion of story ,in your word?',
-                dataString: '',
-                correctAnswer: ``
-            },
         ]
     },
+    {
+        story: ` ` ,
+        question:`Give conclusion of story ,in your word?`
+    }
 ]
 
 export default DATA;

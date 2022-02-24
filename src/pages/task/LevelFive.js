@@ -59,7 +59,7 @@ export default class LevelOne extends Component {
     handleUserAnswer =async ()=>{
         // const userRef=firestore.doc(`answers/4`);       
         // const {level1}=await (await userRef.get()).data();
-        // console.log(level1);
+        // //console.log(level1);
         if(this.props.correctAnswer===this.state.userAnswer)
         {
            
@@ -71,7 +71,7 @@ export default class LevelOne extends Component {
                         if(!showAnswer[4]&&!submitAnswer[4])
                         {
                             submitAnswer[4]=new Date();
-                            console.log(showAnswer[4]);
+                            //console.log(showAnswer[4]);
                             const userRef=firestore.doc(`users/${id}`);       
                             await userRef.update({submitAnswer,score:score+10});
                         }  
@@ -110,7 +110,7 @@ export default class LevelOne extends Component {
                     />
                 </div>
                
-               {/* {console.log(this.props)} */}
+               {/* {//console.log(this.props)} */}
               
                {/* <Row><h3>{question}</h3></Row> */}
                <div className="outside-book">

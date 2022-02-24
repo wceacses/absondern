@@ -21,7 +21,7 @@ class SignUp extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    reactLocalStorage.set('timer', 3600);
+    reactLocalStorage.set('timer', 3900);
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
@@ -52,7 +52,7 @@ class SignUp extends React.Component {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
-    console.log(this.state);
+    // //console.log(this.state);
   };
 
   render() {
