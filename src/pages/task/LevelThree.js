@@ -134,7 +134,7 @@ export default class LevelOne extends Component {
                 }
             }
             this.setState({ userAnswer: '' });
-            alert("Congratulations your answer is correct, You can move to next level now");
+            alert("Congratulations your answer is correct, You can move to Next Question now");
             if (this.props.qha.length > this.state.index + 1) {
                 var index1 = this.state.index + 1;
                 this.setState({ index: index1 });
@@ -158,7 +158,7 @@ export default class LevelOne extends Component {
                     <Row>
                         <Col className='hero-image-container'>
                             <div className="hero-image">
-                                <div className="hero-text">
+                                <div className="hero-text" style={{textAlign: 'center'}}>
                                     <pre>{story}</pre>
                                     <audio controls>
                                         <source src="" type="audio/mpeg" />
@@ -195,13 +195,13 @@ export default class LevelOne extends Component {
                         showAnswer ?
                             (showAnswer[index]
                                 ? <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                    {/*<Link to='/sciyokshi'> Next Level</Link>*/}
+                                    {/*<Link to='/sciyokshi'> Next Question</Link>*/}
                                     Next question
                                 </Button> :
                                 (submitAnswer ?
                                     (submitAnswer[index] ?
                                         <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                            {/* <Link to='/sciyokshi'> Next Level</Link> */}
+                                            {/* <Link to='/sciyokshi'> Next Question</Link> */}
                                             Next question
                                         </Button>
                                         : null) : null)) : null

@@ -77,7 +77,7 @@ export default class LevelOne extends Component {
                         }  
                     }
                     
-            alert("Congratulations your answer is correct, You can move to next level now");
+            alert("Congratulations your answer is correct, You can move to Next Question now");
         }
         else
             alert("Ohh No Your Answer Is wrong Try to take hint/show answer if you are stuck. It comes with penalty ");
@@ -125,10 +125,10 @@ export default class LevelOne extends Component {
                     <Button variant="warning" style={{margin:'0px 5px'}} onClick={this.handleHint}>Hint Please</Button>
                     <Button variant="danger" style={{margin:'0px 5px'}} onClick={this.handleShowAnswer}>Show Answer</Button>
                     {
-                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Level</Link></Button>):null
+                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Question</Link></Button>):null
                     }
                     {
-                     showAnswer?(showAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Level</Link></Button>:(submitAnswer?(submitAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Level</Link></Button>:null):null)):null
+                     showAnswer?(showAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Question</Link></Button>:(submitAnswer?(submitAnswer[3]?<Button variant="success" style={{margin:'0px 5px'}}><Link to='/blackhoodeddevil'> Next Question</Link></Button>:null):null)):null
                     }
                 </div>
                

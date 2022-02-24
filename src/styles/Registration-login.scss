@@ -1,0 +1,125 @@
+
+.cp {
+  margin-Top: 7%;
+}
+
+.cp1 {
+  padding-top: 25%;
+}
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+.base-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .header {
+      font-size: 24px;
+      font-family: "Open Sans", sans-serif;
+    }
+  
+    .content {
+      display: flex;
+      flex-direction: column;
+  
+      .image {
+        width: 21em;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+  
+      .form {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: fit-content;
+          label {
+            font-size: 20px;
+          }
+          input {
+            margin-top: 6px;
+            min-width: 18em;
+            height: 37px;
+            padding: 0px 10px;
+            font-size: 16px;
+            font-family: "Open Sans", sans-serif;
+            background-color: #f3f3f3;
+            border: 0;
+            border-radius: 4px;
+            margin-bottom: 31px;
+            transition: all 250ms ease-in-out;
+            &:hover {
+              background-color: #ffffff;
+              box-shadow: 0px 0px 14px 0.3px #0e81ce96;
+            }
+  
+            &:focus {
+              outline: none;
+              box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+            }
+          }
+        }
+      }
+    }
+    .footer {
+      margin-top: 3em;
+    }
+  }
+
+   
+.dash{
+  width : 1200px;
+}
+
+  #title {
+    padding: 30px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+  
+  #users {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+  
+  #users td, #users th {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  #users tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #users tr:hover {background-color: #ddd;}
+  
+  #users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #2e313f;
+    color: white;
+  }

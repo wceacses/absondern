@@ -106,12 +106,12 @@ export default class LevelOne extends Component {
             var index1 = this.state.index - 1;
             this.setState({ index: index1 });
         } else {
-            window.location.href = '/rule'
+            window.location.href = '/manyokshi'
         }
     }
 
     handleUserAnswer = async () => {
-        if (this.props.qha[this.state.index].correctAnswer === this.state.userAnswer) {
+        if (this.props.qha[this.state.index].correctAnswer === this.state.userAnswer || this.props.qha[this.state.index].correctAnswer === this.state.optionalAnswer) {
 
             const { id  } = this.props;
             let { submitAnswer, score ,showAnswer } = this.state.currentQuestionArray;
@@ -156,7 +156,7 @@ export default class LevelOne extends Component {
                     <Row>
                         <Col className='hero-image-container'>
                             <div className="hero-image">
-                                <div className="hero-text">
+                                <div className="hero-text" style={{textAlign: 'center'}}>
                                     <pre>{story}</pre>
                                     <audio controls>
                                         <source src="" type="audio/mpeg" />
@@ -196,13 +196,13 @@ export default class LevelOne extends Component {
                         showAnswer ?
                             (showAnswer[index]
                                 ? <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                    {/*<Link to='/sciyokshi'> Next Level</Link>*/}
+                                    {/*<Link to='/sciyokshi'> Next Question</Link>*/}
                                     Next question
                                 </Button> :
                                 (submitAnswer ?
                                     (submitAnswer[index] ?
                                         <Button variant="secondary" onClick={this.updateIndex} style={{ margin: '0px 5px' }}>
-                                            {/* <Link to='/sciyokshi'> Next Level</Link> */}
+                                            {/* <Link to='/sciyokshi'> Next Question</Link> */}
                                             Next question
                                         </Button>
                                         : null) : null)) : null

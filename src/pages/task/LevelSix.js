@@ -81,7 +81,7 @@ export default class LevelOne extends Component {
                     }
                     <Button variant="success" style={{margin:'0px 5px'}} onClick={this.handleUserAnswer}>Submit Story</Button>
                     {
-                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Level</Link></Button>):null
+                        showAnswer?(<Button variant="outline-primary" style={{margin:'0px 5px'}}><Link to='/kinyokshi'> Previous Question</Link></Button>):null
                     }
                    
                 </div>
