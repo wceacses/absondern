@@ -14,7 +14,7 @@ const DATA = [
                 correctAnswer: `doll`
             },
             {
-                question: 'I can write but i am not pen,I can walk but i am not any vehical,I can tik-tok but i am not clock, who am i?',
+                question: 'I can write but i am not pen,I can walk but i am not any vehicle,I can tik-tok but i am not clock, who am i?',
                 dataString: 'Christopher Latham Sholes',
                 correctAnswer: `typewriter`
             },
