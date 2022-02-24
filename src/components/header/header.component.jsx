@@ -32,7 +32,8 @@ const Header = ({ totalTime,displayName,score,email }) => (
       </div>
       {email? (
         <div className='option' onClick={() => auth.signOut()}>
-          SIGN OUT
+//           SIGN OUT
+          <a href="/">SIGN OUT</a>
         </div>
       ) : (
         <Link className='option' to='/'>
