@@ -138,7 +138,7 @@ export default class LevelOne extends Component {
                                 <div className="hero-text">
                                     <pre>{story}</pre>
                                     <audio controls>
-                                        <source src="https://teams.microsoft.com/_#/pre-join-calling/19:AViI-LSa4iLlBnRKLCBmCR0wzoqupCaBA3kPcJmZkN41@thread.tacv2" type="audio/mpeg" />
+                                        <source src="https://firebasestorage.googleapis.com/v0/b/crwn-db-e8117.appspot.com/o/Part%201-testing.mp3?alt=media&token=3c70a204-3363-4996-88b4-52e5dfde4741" type="audio/mpeg" />
                                     </audio>
                                 </div>
                             </div>
