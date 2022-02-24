@@ -51,9 +51,9 @@ const DATA = [
                 correctAnswer: `lanka niwas`
             },
             {
-                question: '',
-                dataString: '',
-                correctAnswer: ``
+                question: '<img src={https://firebasestorage.googleapis.com/v0/b/crwn-db-e8117.appspot.com/o/lock.jpg?alt=media&token=cbcf93d7-830b-4056-ae73-82523109d5e3} alt="question"/>',
+                dataString: 'Carefully see the hints',
+                correctAnswer: `2213`
             },
         ]
     },
