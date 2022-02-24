@@ -163,7 +163,7 @@ export default class LevelOne extends Component {
                                     </audio>
                                     {index === 3?<div>
                                         <img style={{width: '100%', height: ''}} src="https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/11.jpeg?alt=media&token=02886fde-f73f-42a2-b1ee-a4c748c2468f" alt="question"/>
-                                        <h2>Or you can see on <a href="https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/11.jpeg?alt=media&token=02886fde-f73f-42a2-b1ee-a4c748c2468f">Here</a> </h2>
+                                        <h2>Or you can see it <a href="https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/11.jpeg?alt=media&token=02886fde-f73f-42a2-b1ee-a4c748c2468f">Here</a> </h2>
                                     </div>:null}
                                 </div>
                             </div>
