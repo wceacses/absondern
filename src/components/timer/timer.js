@@ -4,7 +4,7 @@ import { auth } from '../../firebase/firebase.utils';
 
 
 export default function Timer({totalTime}) {
-  const tmpVal=reactLocalStorage.get('timer',3900);
+  const tmpVal=reactLocalStorage.get('timer',2400);
   const [timer, setTimer] = React.useState(tmpVal);
   const id = React.useRef(null);
   const clear = () => {
@@ -19,7 +19,7 @@ export default function Timer({totalTime}) {
 
   React.useEffect(() => {
     if (timer <= 0) {
-      alert("sorry you cann't attempt test anymore,your 90 min time is finished");
+      alert("sorry you cann't attempt test anymore,your 40 min time is finished");
       auth.signOut();
       clear();
     }if(timer%10===0)
