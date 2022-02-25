@@ -78,7 +78,7 @@ class App extends React.Component {
         {/* <button onClick={this.handleHint}>Hint</button> */}
         {/* <LevelOne {...currentUser}></LevelOne> */}
         <Switch>
-          <Route exact path='/' component={SignInAndSignUpPage} />
+          <Route exact path='*' component={SignInAndSignUpPage} />
           {/* <Route exact path='/rule' component={Rules} /> */}
           {/* <Route exact path='/manyokshi' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} /> */}
           {/* <Route exact path='/sciyokshi' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} /> */}
