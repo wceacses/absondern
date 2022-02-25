@@ -97,7 +97,7 @@ export default class LevelOne extends Component {
             var index1 = this.state.index + 1;
             this.setState({ index: index1 });
         } else {
-            window.location.href = '/manyokshi'
+            window.location.href = '/kinyokshi'
         }
     }
 
