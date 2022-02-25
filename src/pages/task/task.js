@@ -19,7 +19,7 @@ const DATA = [
                 correctAnswer: `typewriter`
             },
             {
-                question: 'Titar ke do aage teetar ,Titar ke do piche teetar, age teetar ,piche teetar ,bolo kitne teetar?',
+                question: 'Titar ke do aage teetar, Titar ke do piche titar, Age teetar piche titar, bolo kitne titar?',
                 dataString: 'Find the answer for every phrase.',
                 correctAnswer: `2213`
             },
