@@ -21,7 +21,7 @@ class SignUp extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    reactLocalStorage.set('timer', 3900);
+    reactLocalStorage.set('timer', 2400);
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
