@@ -78,12 +78,13 @@ class App extends React.Component {
         {/* <button onClick={this.handleHint}>Hint</button> */}
         {/* <LevelOne {...currentUser}></LevelOne> */}
         <Switch>
-          <Route exact path='/rule' component={Rules} />
-          <Route exact path='/manyokshi' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} />
-          <Route exact path='/sciyokshi' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} />
-          <Route exact path='/kinyokshi' render={()=><LevelThree {...DATA[2]} {...currentUser}></LevelThree>} />
-          <Route exact path='/endgame' render={()=><LevelSix {...DATA[3]} {...currentUser}></LevelSix>} />
-          <Route exact path='/' render={()=>currentUser?(<Redirect to='/rule'/>):<SignInAndSignUpPage/>}/>
+          <Route exact path='/' component={SignInAndSignUpPage} />
+          {/* <Route exact path='/rule' component={Rules} /> */}
+          {/* <Route exact path='/manyokshi' render={()=><LevelOne {...DATA[0]} {...currentUser}></LevelOne>} /> */}
+          {/* <Route exact path='/sciyokshi' render={()=><LevelTwo {...DATA[1]} {...currentUser}></LevelTwo>} /> */}
+          {/* <Route exact path='/kinyokshi' render={()=><LevelThree {...DATA[2]} {...currentUser}></LevelThree>} /> */}
+          {/* <Route exact path='/endgame' render={()=><LevelSix {...DATA[3]} {...currentUser}></LevelSix>} /> */}
+          {/* <Route exact path='/' render={()=>currentUser?(<Redirect to='/rule'/>):<SignInAndSignUpPage/>}/> */}
           
         </Switch>
       </Container>
