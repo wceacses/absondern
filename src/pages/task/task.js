@@ -37,7 +37,7 @@ const DATA = [
             {
                 question: 'Gussa mat kar nao-jawan, Andhi ho ya tufan, garmi sardi ka nhi bhan, Bol me rakhna yahi bol, Jay jawan jay kisan..',
                 dataString: 'Kiske hai ye bol?',
-                correctAnswer: `lal bahadur sastri chowk`
+                correctAnswer: `lal bahadur shastri chowk`
             },
             {
                 question: 'Sagar kinare Dil ke pukare vahi hote hai lohe ke machhware..',
