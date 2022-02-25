@@ -75,7 +75,7 @@ const DATA = [
     },
     {
         story: ` ` ,
-        question:`Give conclusion of story ,in your word?`
+        question:`Conclusion`
     }
 ]
 
