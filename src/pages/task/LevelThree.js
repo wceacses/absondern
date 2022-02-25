@@ -161,7 +161,7 @@ export default class LevelOne extends Component {
                                 <div className="hero-text" style={{textAlign: 'center'}}>
                                     <pre>{story}</pre>
                                     <audio controls>
-                                        <source src="https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/Part%203.mp3?alt=media&token=59ed1f63-1609-4027-ac35-5755af9674c4" type="audio/mpeg" />
+                                        <source src="https://firebasestorage.googleapis.com/v0/b/test-50de2.appspot.com/o/part3-c.mp3?alt=media&token=54ba6eec-fa9e-4d13-9829-dbebf118c901" type="audio/mpeg" />
                                     </audio>
                                 </div>
                             </div>
