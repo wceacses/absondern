@@ -25,7 +25,6 @@ export default function Timer({totalTime}) {
     }if(timer%10===0)
     {
       reactLocalStorage.set('timer', timer);
-      // //console.log(timer)
     }
   }, [timer]);
 
