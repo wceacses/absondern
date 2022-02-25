@@ -20,7 +20,7 @@ export default function rules() {
                 3. So the max score for the round is 110 . i.e 10 marks for each question
                 Conclusion part’s score will be hidden and will be allotted by judges.
                 <br /> <br />
-                4. The time for completing the entire round is 1 hour, which should be completed within the 9-11 PM slot in which extra 5 minutes have been given for reading the rules. Any answer submitted after 11 PM will not be taken into consideration as we will block our database for any request made post 11PM
+                4. The time for completing the entire round is 40 minutes.
                 <br /> <br />
                 5. Individual tracks of students are being maintained. Any suspicious activity like submitting two answers within a very short span will be taken into consideration and that candidate’s participation will be debarred.
                 <br /> <br />
