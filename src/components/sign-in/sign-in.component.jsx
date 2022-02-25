@@ -2,6 +2,7 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import {reactLocalStorage} from 'reactjs-localstorage'
 
 import { auth } from '../../firebase/firebase.utils';
 import Hypnosis from "../../loader";
@@ -24,6 +25,7 @@ class SignIn extends React.Component {
     const { email, password } = this.state;
 
     try {
+      reactLocalStorage.removeItem("timer")
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: '', password: '' });
       this.setState({ datafetched: true });

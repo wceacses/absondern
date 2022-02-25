@@ -28,7 +28,7 @@ export default class LevelOne extends Component {
                    
             const userRef=firestore.doc(`users/${id}`);       
             
-            const {finalStory}=await (await userRef.get()).data();
+            const {finalStory}=  (await userRef.get()).data();
             if(finalStory)        
             alert("Congratulations your story is received, You can sign out now");
             else
